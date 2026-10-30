@@ -1,0 +1,110 @@
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: web_results/dirb_output.txt
+START_TIME: Fri Oct 23 03:04:35 2026
+URL_BASE: http://192.168.56.101/dvwa/
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+
+-----------------
+
+GENERATED WORDS: 4612
+
+---- Scanning URL: http://192.168.56.101/dvwa/ ----
++ http://192.168.56.101/dvwa/about (CODE:302|SIZE:0)
+==> DIRECTORY: http://192.168.56.101/dvwa/config/
+==> DIRECTORY: http://192.168.56.101/dvwa/docs/
+==> DIRECTORY: http://192.168.56.101/dvwa/external/
++ http://192.168.56.101/dvwa/favicon.ico (CODE:200|SIZE:1406)
++ http://192.168.56.101/dvwa/index (CODE:302|SIZE:0)
++ http://192.168.56.101/dvwa/index.php (CODE:302|SIZE:0)
++ http://192.168.56.101/dvwa/instructions (CODE:302|SIZE:0)
++ http://192.168.56.101/dvwa/login (CODE:200|SIZE:1289)
++ http://192.168.56.101/dvwa/logout (CODE:302|SIZE:0)
++ http://192.168.56.101/dvwa/php.ini (CODE:200|SIZE:148)
++ http://192.168.56.101/dvwa/phpinfo (CODE:302|SIZE:0)
++ http://192.168.56.101/dvwa/phpinfo.php (CODE:302|SIZE:0)
++ http://192.168.56.101/dvwa/README (CODE:200|SIZE:4934)
++ http://192.168.56.101/dvwa/robots (CODE:200|SIZE:26)
++ http://192.168.56.101/dvwa/robots.txt (CODE:200|SIZE:26)
++ http://192.168.56.101/dvwa/security (CODE:302|SIZE:0)
++ http://192.168.56.101/dvwa/setup (CODE:200|SIZE:3549)
+
+---- Entering directory: http://192.168.56.101/dvwa/config/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.
+    (Use mode '-w' if you want to scan it anyway)
+
+---- Entering directory: http://192.168.56.101/dvwa/docs/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.
+    (Use mode '-w' if you want to scan it anyway)
+
+---- Entering directory: http://192.168.56.101/dvwa/external/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.
+    (Use mode '-w' if you want to scan it anyway)
+
+-----------------
+END_TIME: Fri Oct 23 03:04:39 2026
+DOWNLOADED: 4612 - FOUND: 15
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: web_results/dirb_output.txt
+START_TIME: Fri Oct 23 10:11:57 2026
+URL_BASE: http://192.168.56.101/dvwa/login.php/
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+
+-----------------
+
+GENERATED WORDS: 4612
+
+---- Scanning URL: http://192.168.56.101/dvwa/login.php/ ----
+
+-----------------
+END_TIME: Fri Oct 23 10:16:04 2026
+DOWNLOADED: 4612 - FOUND: 0
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: web_results/dirb_output.txt
+START_TIME: Fri Oct 23 10:36:04 2026
+URL_BASE: http://192.168.56.101/dvwa/login.php/
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+
+-----------------
+
+GENERATED WORDS: 4612
+
+---- Scanning URL: http://192.168.56.101/dvwa/login.php/ ----
+
+-----------------
+END_TIME: Fri Oct 23 10:39:16 2026
+DOWNLOADED: 4612 - FOUND: 0
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: web_results/dirb_output.txt
+START_TIME: Tue Oct 27 04:19:47 2026
+URL_BASE: http://192.168.56.101/dvwa/login.php/
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+
+-----------------
+
+GENERATED WORDS: 4612
+
+---- Scanning URL: http://192.168.56.101/dvwa/login.php/ ----
+
+-----------------
+END_TIME: Tue Oct 27 05:10:02 2026
+DOWNLOADED: 4612 - FOUND: 0

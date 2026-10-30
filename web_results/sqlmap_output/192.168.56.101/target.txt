@@ -1,0 +1,1 @@
+http://192.168.56.101/dvwa/vulnerabilities/sqli/?id=1&Submit=Submit# (GET)  # /usr/bin/sqlmap -u http://192.168.56.101/dvwa/vulnerabilities/sqli/?id=1&Submit=Submit# --batch --level=1 --risk=1 --threads=1 --timeout=10 --retries=1 --output-dir=/home/kali/Desktop/cyberguard/web_results/sqlmap_output

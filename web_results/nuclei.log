@@ -1,0 +1,93 @@
+
+                     __     _
+   ____  __  _______/ /__  (_)
+  / __ \/ / / / ___/ / _ \/ /
+ / / / / /_/ / /__/ /  __/ /
+/_/ /_/\__,_/\___/_/\___/_/   v3.11.0
+
+		projectdiscovery.io
+
+[[34mINF[0m] Current nuclei version: v3.11.0 ([91moutdated[0m)
+[[34mINF[0m] Current nuclei-templates version: v10.5.0 ([92mlatest[0m)
+[[34mINF[0m] New templates added in latest release: 295
+[[34mINF[0m] Templates loaded for current scan: 11144
+[[34mINF[0m] Executing 11144 signed templates from projectdiscovery/nuclei-templates
+[[34mINF[0m] Targets loaded for current scan: 1
+[[34mINF[0m] Templates clustered: 2724 (Reduced 2588 Requests)
+[[92mCVE-2012-1823[0m] [[94mhttp[0m] [[38;5;208mhigh[0m] http://192.168.56.101/dvwa/index.php?-d+allow_url_include%3don+-d+auto_prepend_file%3dphp%3a//input
+[[34mINF[0m] Using Interactsh Server: oast.live
+[[92mapache-mod-negotiation-listing[0m:[1;92mexposed_files[0m] [[94mhttp[0m] [[32mlow[0m] http://192.168.56.101/dvwa/index [[96m"index.php"[0m] [[93mpath[0m=[93m"/index"[0m]
+[[92mapache-mod-negotiation-listing[0m:[1;92mexposed_files[0m] [[94mhttp[0m] [[32mlow[0m] http://192.168.56.101/dvwa/login [[96m"login.php"[0m] [[93mpath[0m=[93m"/login"[0m]
+[[92mcookies-without-secure[0m] [[94mjavascript[0m] [[34minfo[0m] 192.168.56.101 [[96m"PHPSESSID"[0m,[96m"security"[0m]
+[[92mcookies-without-httponly[0m] [[94mjavascript[0m] [[34minfo[0m] 192.168.56.101 [[96m"PHPSESSID"[0m,[96m"security"[0m]
+[[92mwaf-detect[0m:[1;92mapachegeneric[0m] [[94mhttp[0m] [[34minfo[0m] http://192.168.56.101/dvwa/
+[[34mINF[0m] Skipped 192.168.56.101:9780 from target list as found unresponsive permanently: cause="port closed or filtered" address=192.168.56.101:9780 chain="connection refused; got err while executing http://192.168.56.101:9780/dvwa/api/v1/user_assets/nfc"
+[[92mvnc-default-login[0m] [[94mjavascript[0m] [[38;5;208mhigh[0m] 192.168.56.101:5900 [[93mFQDN[0m=[93m"192.168.56.101"[0m,[93mHost[0m=[93m"192.168.56.101"[0m,[93mHostname[0m=[93m"192.168.56.101:5900"[0m,[93mPort[0m=[93m"5900"[0m,[93mpasswords[0m=[93m"password123"[0m]
+[[92mvnc-default-login[0m] [[94mjavascript[0m] [[38;5;208mhigh[0m] 192.168.56.101:5900 [[93mFQDN[0m=[93m"192.168.56.101"[0m,[93mHost[0m=[93m"192.168.56.101"[0m,[93mHostname[0m=[93m"192.168.56.101:5900"[0m,[93mPort[0m=[93m"5900"[0m,[93mpasswords[0m=[93m"password"[0m]
+[[92mCVE-2026-4480[0m:[1;92mversion[0m] [[94mjavascript[0m] [[31mcritical[0m] 192.168.56.101:445 [[96m"3.0.20"[0m]
+[[92msamba-detect[0m] [[94mjavascript[0m] [[34minfo[0m] 192.168.56.101:445 [[96m"Samba 3.0.20-Debian"[0m]
+[[92mmysql-info[0m] [[94mjavascript[0m] [[34minfo[0m] 192.168.56.101:3306 [[96m"Version: 5.0.51a-3ubuntu5"[0m,[96m"Transport: tcp"[0m]
+[[92mrlogin-detect[0m] [[94mjavascript[0m] [[34minfo[0m] 192.168.56.101:513
+[[92mssh-auth-methods[0m] [[94mjavascript[0m] [[34minfo[0m] 192.168.56.101:22 [[96m"["publickey","password"]"[0m]
+[[92mpostgres-default-logins[0m] [[94mjavascript[0m] [[38;5;208mhigh[0m] 192.168.56.101:5432 [[93mFQDN[0m=[93m"192.168.56.101"[0m,[93mHost[0m=[93m"192.168.56.101"[0m,[93mHostname[0m=[93m"192.168.56.101:5432"[0m,[93mPort[0m=[93m"5432"[0m,[93mpasswords[0m=[93m"postgres"[0m,[93musernames[0m=[93m"postgres"[0m]
+[[92mpgsql-default-db[0m] [[94mjavascript[0m] [[38;5;208mhigh[0m] 192.168.56.101:5432 [[93mFQDN[0m=[93m"192.168.56.101"[0m,[93mHost[0m=[93m"192.168.56.101"[0m,[93mHostname[0m=[93m"192.168.56.101:5432"[0m,[93mPort[0m=[93m"5432"[0m,[93mdatabase[0m=[93m"postgres"[0m,[93mpassword[0m=[93m"postgres"[0m,[93musernames[0m=[93m"postgres"[0m]
+[[92mpgsql-default-db[0m] [[94mjavascript[0m] [[38;5;208mhigh[0m] 192.168.56.101:5432 [[93mFQDN[0m=[93m"192.168.56.101"[0m,[93mHost[0m=[93m"192.168.56.101"[0m,[93mHostname[0m=[93m"192.168.56.101:5432"[0m,[93mPort[0m=[93m"5432"[0m,[93mdatabase[0m=[93m"postgres"[0m,[93mpassword[0m=[93m""[0m,[93musernames[0m=[93m"postgres"[0m]
+[[92mntlm-info[0m] [[94mjavascript[0m] [[34minfo[0m] 192.168.56.101:445 [[96m"NTLM: Samba 3.0.20-Debian"[0m]
+[[92msmb-v1-supported[0m] [[94mjavascript[0m] [[34minfo[0m] 192.168.56.101:445
+[[92mpgsql-default-db[0m] [[94mjavascript[0m] [[38;5;208mhigh[0m] 192.168.56.101:5432 [[93mFQDN[0m=[93m"192.168.56.101"[0m,[93mHost[0m=[93m"192.168.56.101"[0m,[93mHostname[0m=[93m"192.168.56.101:5432"[0m,[93mPort[0m=[93m"5432"[0m,[93mdatabase[0m=[93m"template1"[0m,[93mpassword[0m=[93m""[0m,[93musernames[0m=[93m"postgres"[0m]
+[[92mpgsql-default-db[0m] [[94mjavascript[0m] [[38;5;208mhigh[0m] 192.168.56.101:5432 [[93mFQDN[0m=[93m"192.168.56.101"[0m,[93mHost[0m=[93m"192.168.56.101"[0m,[93mHostname[0m=[93m"192.168.56.101:5432"[0m,[93mPort[0m=[93m"5432"[0m,[93mdatabase[0m=[93m"template1"[0m,[93mpassword[0m=[93m"postgres"[0m,[93musernames[0m=[93m"postgres"[0m]
+[[92msmb-version-detect[0m:[1;92msmb-version[0m] [[94mjavascript[0m] [[34minfo[0m] 192.168.56.101:445 [[96m"SMB 1.0"[0m]
+[[92mssh-diffie-hellman-logjam[0m] [[94mjavascript[0m] [[32mlow[0m] 192.168.56.101:22
+[[92mssh-password-auth[0m] [[94mjavascript[0m] [[34minfo[0m] 192.168.56.101:22
+[[92mssh-server-enumeration[0m] [[94mjavascript[0m] [[34minfo[0m] 192.168.56.101:22 [[96m"SSH-2.0-OpenSSH_4.7p1 Debian-8ubuntu1"[0m]
+[[92mssh-sha1-hmac-algo[0m] [[94mjavascript[0m] [[34minfo[0m] 192.168.56.101:22
+[[92mpgsql-empty-password[0m] [[94mjavascript[0m] [[31mcritical[0m] 192.168.56.101:5432
+[[92mssh-cbc-mode-ciphers[0m] [[94mjavascript[0m] [[32mlow[0m] 192.168.56.101:22
+[[92mssh-weak-mac-algo[0m] [[94mjavascript[0m] [[32mlow[0m] 192.168.56.101:22
+[[92mssh-weak-algo-supported[0m] [[94mjavascript[0m] [[33mmedium[0m] 192.168.56.101:22
+[[92mssh-weakkey-exchange-algo[0m] [[94mjavascript[0m] [[32mlow[0m] 192.168.56.101:22
+[[92mnetbios-udp-detect[0m] [[94mjavascript[0m] [[34minfo[0m] 192.168.56.101:137 [[96m"NetBIOS Name Service Detected"[0m]
+[[92mrpc-udp-detect[0m] [[94mjavascript[0m] [[34minfo[0m] 192.168.56.101:111 [[96m"RPC Portmapper UDP Detected"[0m]
+[[92mCVE-2004-2687[0m] [[94mtcp[0m] [[38;5;208mhigh[0m] 192.168.56.101:3632
+[[92mCVE-2015-1419[0m:[1;92mversion[0m] [[94mtcp[0m] [[33mmedium[0m] 192.168.56.101:21 [[96m"2.3.4"[0m]
+[[92mCVE-2021-30047[0m:[1;92mversion[0m] [[94mtcp[0m] [[38;5;208mhigh[0m] 192.168.56.101:21 [[96m"2.3.4"[0m]
+[[92mftp-weak-credentials[0m] [[94mtcp[0m] [[38;5;208mhigh[0m] 192.168.56.101:21 [[93mpassword[0m=[93m"default"[0m,[93musername[0m=[93m"ftp"[0m]
+[[92mftp-weak-credentials[0m] [[94mtcp[0m] [[38;5;208mhigh[0m] 192.168.56.101:21 [[93mpassword[0m=[93m"pass1"[0m,[93musername[0m=[93m"ftp"[0m]
+[[92mesmtp-detect[0m] [[94mtcp[0m] [[34minfo[0m] 192.168.56.101:25
+[[92mftp-detect[0m] [[94mtcp[0m] [[34minfo[0m] 192.168.56.101:21
+[[92mvsftpd-detect[0m:[1;92mversion[0m] [[94mtcp[0m] [[34minfo[0m] 192.168.56.101:21 [[96m"2.3.4"[0m]
+[[92mnfs-v3-exposed[0m] [[94mtcp[0m] [[34minfo[0m] 192.168.56.101:2049
+[[92mopenssh-detect[0m] [[94mtcp[0m] [[34minfo[0m] 192.168.56.101:22 [[96m"SSH-2.0-OpenSSH_4.7p1 Debian-8ubuntu1"[0m]
+[[92msmtp-detect[0m] [[94mtcp[0m] [[34minfo[0m] 192.168.56.101:25
+[[92mvnc-service-detect[0m] [[94mtcp[0m] [[34minfo[0m] 192.168.56.101:5900 [[96m"RFB 003.003"[0m]
+[[92msmtp-commands-enum[0m:[1;92mehlo[0m] [[94mtcp[0m] [[34minfo[0m] 192.168.56.101:25 [[96m"ETRN"[0m,[96m"STARTTLS"[0m,[96m"ENHANCEDSTATUSCODES"[0m,[96m"8BITMIME"[0m,[96m"DSN"[0m,[96m"PIPELINING"[0m,[96m"SIZE 10240000"[0m,[96m"VRFY"[0m]
+[[92mCVE-2011-2523[0m] [[94mtcp[0m] [[31mcritical[0m] 192.168.56.101:6200
+[[92mftp-anonymous-login[0m] [[94mtcp[0m] [[33mmedium[0m] 192.168.56.101:21
+[[92mftp-weak-credentials[0m] [[94mtcp[0m] [[38;5;208mhigh[0m] 192.168.56.101:21 [[93mpassword[0m=[93m"password"[0m,[93musername[0m=[93m"ftp"[0m]
+[[92mftp-weak-credentials[0m] [[94mtcp[0m] [[38;5;208mhigh[0m] 192.168.56.101:21 [[93mpassword[0m=[93m"guest"[0m,[93musername[0m=[93m"ftp"[0m]
+[[92mftp-weak-credentials[0m] [[94mtcp[0m] [[38;5;208mhigh[0m] 192.168.56.101:21 [[93mpassword[0m=[93m"123456"[0m,[93musername[0m=[93m"ftp"[0m]
+[[92mftp-weak-credentials[0m] [[94mtcp[0m] [[38;5;208mhigh[0m] 192.168.56.101:21 [[93mpassword[0m=[93m"toor"[0m,[93musername[0m=[93m"ftp"[0m]
+[[92mftp-weak-credentials[0m] [[94mtcp[0m] [[38;5;208mhigh[0m] 192.168.56.101:21 [[93mpassword[0m=[93m"stingray"[0m,[93musername[0m=[93m"ftp"[0m]
+[[92mftp-weak-credentials[0m] [[94mtcp[0m] [[38;5;208mhigh[0m] 192.168.56.101:21 [[93mpassword[0m=[93m"nas"[0m,[93musername[0m=[93m"ftp"[0m]
+[[92mapache-httpd-eol[0m:[1;92mversion[0m] [[94mhttp[0m] [[34minfo[0m] http://192.168.56.101/dvwa/ [[96m"2.2.8"[0m]
+[[92mphp-eol[0m:[1;92mversion[0m] [[94mhttp[0m] [[34minfo[0m] http://192.168.56.101/dvwa/ [[96m"5.2.4"[0m]
+[[92mrobots-txt-endpoint[0m] [[94mhttp[0m] [[34minfo[0m] http://192.168.56.101/dvwa/robots.txt
+[[92mrobots-txt[0m] [[94mhttp[0m] [[34minfo[0m] http://192.168.56.101/dvwa/robots.txt
+[[34mINF[0m] Skipped 192.168.56.101:5814 from target list as found unresponsive permanently: Get "https://192.168.56.101:5814/autopass": cause="port closed or filtered" address=192.168.56.101:5814 chain="connection refused"
+[[92mhttp-missing-security-headers[0m:[1;92mpermissions-policy[0m] [[94mhttp[0m] [[34minfo[0m] http://192.168.56.101/dvwa/login.php
+[[92mhttp-missing-security-headers[0m:[1;92mx-frame-options[0m] [[94mhttp[0m] [[34minfo[0m] http://192.168.56.101/dvwa/login.php
+[[92mhttp-missing-security-headers[0m:[1;92mx-content-type-options[0m] [[94mhttp[0m] [[34minfo[0m] http://192.168.56.101/dvwa/login.php
+[[92mhttp-missing-security-headers[0m:[1;92mcross-origin-embedder-policy[0m] [[94mhttp[0m] [[34minfo[0m] http://192.168.56.101/dvwa/login.php
+[[92mhttp-missing-security-headers[0m:[1;92mcross-origin-resource-policy[0m] [[94mhttp[0m] [[34minfo[0m] http://192.168.56.101/dvwa/login.php
+[[92mhttp-missing-security-headers[0m:[1;92mstrict-transport-security[0m] [[94mhttp[0m] [[34minfo[0m] http://192.168.56.101/dvwa/login.php
+[[92mhttp-missing-security-headers[0m:[1;92mcontent-security-policy[0m] [[94mhttp[0m] [[34minfo[0m] http://192.168.56.101/dvwa/login.php
+[[92mhttp-missing-security-headers[0m:[1;92mx-permitted-cross-domain-policies[0m] [[94mhttp[0m] [[34minfo[0m] http://192.168.56.101/dvwa/login.php
+[[92mhttp-missing-security-headers[0m:[1;92mreferrer-policy[0m] [[94mhttp[0m] [[34minfo[0m] http://192.168.56.101/dvwa/login.php
+[[92mhttp-missing-security-headers[0m:[1;92mcross-origin-opener-policy[0m] [[94mhttp[0m] [[34minfo[0m] http://192.168.56.101/dvwa/login.php
+[[92mfingerprinthub-web-fingerprints[0m:[1;92mdvwa[0m] [[94mhttp[0m] [[34minfo[0m] http://192.168.56.101/dvwa/login.php
+[[92mtech-detect[0m:[1;92mphp[0m] [[94mhttp[0m] [[34minfo[0m] http://192.168.56.101/dvwa/login.php
+[[92mmissing-cookie-samesite-strict[0m] [[94mhttp[0m] [[34minfo[0m] http://192.168.56.101/dvwa/ [[96m"PHPSESSID=9357a4bb4ab584a2faf23cebf86ab6b6; path=/ security=high"[0m]
+[[92mtech-detect[0m:[1;92mphp[0m] [[94mhttp[0m] [[34minfo[0m] http://192.168.56.101/dvwa/
+[[34mINF[0m] Skipped 192.168.56.101:4040 from target list as found unresponsive permanently: cause="port closed or filtered" address=192.168.56.101:4040 chain="connection refused; got err while executing http://192.168.56.101:4040/dvwa/jobs/"
+[[34mINF[0m] Scan completed in 2m. 71 matches found.
+[[34mINF[0m] HTTP connections: 14268 total, 3072 new, 11196 reused (78.5%)

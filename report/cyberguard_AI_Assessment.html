@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYBERGUARD Security Assessment Report</title>
+<style>
+  :root {
+    --bg-main: #0b132b;
+    --bg-card: #1c2541;
+    --bg-card-hover: #232f54;
+    --accent-blue: #48cae4;
+    --accent-bright: #00b4d8;
+    --text-primary: #edf2f4;
+    --text-secondary: #8d99ae;
+    --border-color: #2b3a67;
+    --sev-critical: #e63946;
+    --sev-high: #f77f00;
+    --sev-medium: #fcbf49;
+    --sev-low: #48cae4;
+    --sev-info: #57cc99;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding: 20px;
+  }
+
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background: var(--bg-card);
+    border-bottom: 3px solid var(--accent-bright);
+    border-radius: 8px 8px 0 0;
+  }
+
+  .brand { font-size: 1.8rem; font-weight: 800; color: #fff; letter-spacing: 2px; }
+  .brand span { color: var(--accent-blue); }
+  .badge-critical {
+    background: var(--sev-critical);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+  }
+
+  .meta-card {
+    background: var(--bg-card);
+    padding: 15px 20px;
+    border-radius: 6px;
+    border-left: 4px solid var(--accent-bright);
+  }
+
+  .meta-card .label { font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; }
+  .meta-card .value { font-size: 1.05rem; font-weight: 600; margin-top: 5px; word-break: break-all; }
+
+  section {
+    background: var(--bg-card);
+    margin-bottom: 25px;
+    padding: 25px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    color: var(--accent-blue);
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  h3 { font-size: 1.1rem; color: #fff; margin: 15px 0 10px 0; }
+
+  p { margin-bottom: 12px; color: var(--text-primary); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    font-size: 0.95rem;
+  }
+
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  th { background-color: rgba(0, 0, 0, 0.3); color: var(--accent-blue); font-weight: 600; }
+  tr:hover { background-color: var(--bg-card-hover); }
+
+  .sev-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+  }
+
+  .sev-tag.critical { background: var(--sev-critical); color: #fff; }
+  .sev-tag.high { background: var(--sev-high); color: #fff; }
+  .sev-tag.medium { background: var(--sev-medium); color: #111; }
+  .sev-tag.low { background: var(--sev-low); color: #111; }
+  .sev-tag.info { background: var(--sev-info); color: #111; }
+
+  .finding-card {
+    background: rgba(0,0,0,0.2);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  .finding-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .finding-title { font-size: 1.05rem; font-weight: 600; color: #fff; }
+
+  code {
+    background: #0f172a;
+    color: var(--accent-blue);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.9em;
+  }
+
+  .status-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+  }
+
+  .status-item {
+    background: rgba(0,0,0,0.2);
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border-color);
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="brand">CYBER<span>GUARD</span></div>
+    <div class="badge-critical">CRITICAL RISK</div>
+  </header>
+
+  <div class="meta-grid">
+    <div class="meta-card">
+      <div class="label">Target Endpoint</div>
+      <div class="value">http://192.168.56.101/dvwa/login.php</div>
+    </div>
+    <div class="meta-card">
+      <div class="label">Target IP</div>
+      <div class="value">192.168.56.101 (RFC1918 Private)</div>
+    </div>
+    <div class="meta-card">
+      <div class="label">Assessment Date</div>
+      <div class="value">October 23, 2026</div>
+    </div>
+    <div class="meta-card">
+      <div class="label">Assessment Type</div>
+      <div class="value">Automated Infrastructure &amp; Web Scan</div>
+    </div>
+  </div>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <section>
+    <h2>Executive Summary</h2>
+    <p>
+      CYBERGUARD conducted an automated security assessment against the target host at <code>192.168.56.101</code> running the <strong>Damn Vulnerable Web App (DVWA)</strong> environment. The automated scan evaluated network accessibility, running services, web application configuration, and basic vulnerability footprints.
+    </p>
+    <p>
+      <strong>Overall Risk Level: <span style="color: var(--sev-critical);">CRITICAL</span></strong>. 
+      The target system exhibits an exceptionally high security risk profile. Network scanning revealed numerous outdated, cleartext, and inherently insecure administrative services open to the network (including an unauthenticated root bindshell, Telnet, legacy FTP, and remote execution tools). Furthermore, the web application stack relies on end-of-life software components (Apache 2.2.8 and PHP 5.2.4) lacking fundamental HTTP session security flags and defensive headers.
+    </p>
+  </section>
+
+  <!-- SCAN EXECUTION STATUS -->
+  <section>
+    <h2>Tool Execution &amp; Scan Diagnostic Status</h2>
+    <p>
+      Assessment modules were executed sequentially. Below is the operational status and explanation of any failed, skipped, or timed-out tool executions based strictly on scanner records:
+    </p>
+    <div class="status-grid">
+      <div class="status-item"><strong>WHOIS / Dig / DNS:</strong> Completed. Private IP detected (RFC 1918 range 192.168.0.0/16); public domain records non-existent.</div>
+      <div class="status-item"><strong>Sublist3r:</strong> <span style="color:var(--sev-high)">Failed</span> — Returned domain error because the input target was an IP address.</div>
+      <div class="status-item"><strong>JoomScan:</strong> <span style="color:var(--sev-info)">Skipped</span> — Joomla target not detected on target URL.</div>
+      <div class="status-item"><strong>Nikto:</strong> <span style="color:var(--sev-medium)">Incomplete</span> — Terminated due to maximum host execution timeout limit (300 seconds); 20 items reported prior to cutoff.</div>
+      <div class="status-item"><strong>Nmap / WhatWeb / DIRB:</strong> Completed successfully with actionable evidence retrieved.</div>
+      <div class="status-item"><strong>SQLmap / PwnXSS / Nuclei:</strong> Process status logged as completed; specific diagnostic log details were omitted from the summary feed.</div>
+    </div>
+  </section>
+
+  <!-- RECONNAISSANCE -->
+  <section>
+    <h2>Reconnaissance &amp; Network Identification</h2>
+    <p>
+      Reconnaissance tools (Subfinder, Sublist3r, theHarvester, WHOIS) confirmed that the target IP address <code>192.168.56.101</code> resides in an isolated or internal private address space (RFC 1918).
+    </p>
+    <ul>
+      <li><strong>Registry:</strong> ARIN / IANA Private Network Block (<code>192.168.0.0/16</code>).</li>
+      <li><strong>Subdomain Enumeration:</strong> Inconclusive / Not applicable due to direct IP target usage without a public FQDN.</li>
+    </ul>
+  </section>
+
+  <!-- NETWORK SCANNING -->
+  <section>
+    <h2>Network Scanning &amp; Service Fingerprinting</h2>
+    <p>Nmap port scanning detected 23 open TCP ports on host <code>192.168.56.101</code>. The host exposes critical operational and legacy protocols:</p>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Port</th>
+          <th>State</th>
+          <th>Service</th>
+          <th>Detected Version / Banner</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>21/tcp</td><td>Open</td><td>FTP</td><td>vsftpd 2.3.4</td></tr>
+        <tr><td>22/tcp</td><td>Open</td><td>SSH</td><td>OpenSSH 4.7p1 Debian 8ubuntu1 (protocol 2.0)</td></tr>
+        <tr><td>23/tcp</td><td>Open</td><td>Telnet</td><td>Linux telnetd</td></tr>
+        <tr><td>25/tcp</td><td>Open</td><td>SMTP</td><td>Postfix smtpd</td></tr>
+        <tr><td>53/tcp</td><td>Open</td><td>DNS</td><td>ISC BIND 9.4.2</td></tr>
+        <tr><td>80/tcp</td><td>Open</td><td>HTTP</td><td>Apache httpd 2.2.8 ((Ubuntu) DAV/2)</td></tr>
+        <tr><td>111/tcp</td><td>Open</td><td>RPC</td><td>rpcbind</td></tr>
+        <tr><td>139/tcp</td><td>Open</td><td>NetBIOS</td><td>Samba smbd 3.X - 4.X</td></tr>
+        <tr><td>445/tcp</td><td>Open</td><td>SMB</td><td>Samba smbd 3.X - 4.X</td></tr>
+        <tr><td>512/tcp</td><td>Open</td><td>exec</td><td>netkit-rsh rexecd</td></tr>
+        <tr><td>513/tcp</td><td>Open</td><td>login</td><td>OpenBSD or Solaris rlogind</td></tr>
+        <tr><td>514/tcp</td><td>Open</td><td>shell</td><td>Netkit rshd</td></tr>
+        <tr><td>1099/tcp</td><td>Open</td><td>Java RMI</td><td>GNU Classpath grmiregistry</td></tr>
+        <tr><td>1524/tcp</td><td>Open</td><td>Bindshell</td><td>Metasploitable root shell</td></tr>
+        <tr><td>2049/tcp</td><td>Open</td><td>NFS/RPC</td><td>rpcbind</td></tr>
+        <tr><td>2121/tcp</td><td>Open</td><td>FTP</td><td>ProFTPD 1.3.1</td></tr>
+        <tr><td>3306/tcp</td><td>Open</td><td>MySQL</td><td>MySQL 5.0.51a-3ubuntu5</td></tr>
+        <tr><td>5432/tcp</td><td>Open</td><td>PostgreSQL</td><td>PostgreSQL DB 8.3.0 - 8.3.7</td></tr>
+        <tr><td>5900/tcp</td><td>Open</td><td>VNC</td><td>VNC (protocol 3.3)</td></tr>
+        <tr><td>6000/tcp</td><td>Open</td><td>X11</td><td>(access denied)</td></tr>
+        <tr><td>6667/tcp</td><td>Open</td><td>IRC</td><td>UnrealIRCd</td></tr>
+        <tr><td>8009/tcp</td><td>Open</td><td>AJP13</td><td>Apache Jserv (Protocol v1.3)</td></tr>
+        <tr><td>8180/tcp</td><td>Open</td><td>HTTP</td><td>Apache Tomcat/Coyote JSP engine 1.1</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- WEB ASSESSMENT -->
+  <section>
+    <h2>Web Security &amp; Application Assessment</h2>
+    <p>WhatWeb, Nikto, and DIRB provided fingerprinting and content discovery for <code>http://192.168.56.101/dvwa/login.php</code>.</p>
+    
+    <h3>Technology Stack</h3>
+    <ul>
+      <li><strong>Web Server:</strong> Apache 2.2.8 (Ubuntu Linux) DAV/2</li>
+      <li><strong>Application Language:</strong> PHP 5.2.4-2ubuntu5.10</li>
+      <li><strong>Application Framework:</strong> Damn Vulnerable Web App (DVWA)</li>
+      <li><strong>Active Cookies:</strong> <code>PHPSESSID</code>, <code>security</code></li>
+    </ul>
+
+    <h3>Directory Directory &amp; Path Discovery</h3>
+    <p>DIRB enumeration confirmed the presence of accessible directories and sensitive files:</p>
+    <ul>
+      <li><code>/dvwa/config/</code> (Directory indexing explicitly enabled / Listable)</li>
+      <li><code>/dvwa/php.ini</code> (Accessible PHP configuration file, status 200)</li>
+      <li><code>/dvwa/setup</code> (Setup and reset interface exposed, status 200)</li>
+      <li><code>/dvwa/robots.txt</code>, <code>/dvwa/README</code> (Information disclosive documentation)</li>
+    </ul>
+  </section>
+
+  <!-- FINDINGS & VULNERABILITIES -->
+  <section>
+    <h2>Detailed Security Findings</h2>
+
+    <!-- Finding 1 -->
+    <div class="finding-card">
+      <div class="finding-header">
+        <span class="finding-title">Exposed Root Bindshell Service</span>
+        <span class="sev-tag critical">Critical</span>
+      </div>
+      <p><strong>Evidence:</strong> Nmap service scan detected <code>1524/tcp open bindshell Metasploitable root shell</code>.</p>
+      <p><strong>Impact:</strong> An unauthenticated remote attacker connecting to TCP port 1524 gains immediate, interactive shell access with root privileges on the target system.</p>
+      <p><strong>Remediation:</strong> Immediately terminate the process bound to port 1524 and block the port at the host firewall level. Inspect system logs for compromised activity.</p>
+    </div>
+
+    <!-- Finding 2 -->
+    <div class="finding-card">
+      <div class="finding-header">
+        <span class="finding-title">Use of Legacy and Unencrypted Network Protocols</span>
+        <span class="sev-tag high">High</span>
+      </div>
+      <p><strong>Evidence:</strong> Active services include Telnet (23/tcp), FTP (21/tcp, 2121/tcp), rsh/rlogin (512/tcp, 513/tcp, 514/tcp), and VNC (5900/tcp).</p>
+      <p><strong>Impact:</strong> Authentication credentials and sensitive data transmitted via these protocols are sent in cleartext, exposing them to network eavesdropping and man-in-the-middle (MitM) attacks.</p>
+      <p><strong>Remediation:</strong> Disable Telnet, rsh, rlogin, and cleartext FTP services. Replace cleartext remote management tools with SSH (version 2) using strong key-based authentication.</p>
+    </div>
+
+    <!-- Finding 3 -->
+    <div class="finding-card">
+      <div class="finding-header">
+        <span class="finding-title">Severely Outdated Software and End-of-Life Stack</span>
+        <span class="sev-tag high">High</span>
+      </div>
+      <p><strong>Evidence:</strong> Apache httpd 2.2.8, PHP 5.2.4, OpenSSH 4.7p1, MySQL 5.0.51a, and PostgreSQL 8.3.0 are installed on the target.</p>
+      <p><strong>Impact:</strong> End-of-life software components contain multiple publicly documented remote code execution, memory corruption, and privilege escalation vulnerabilities.</p>
+      <p><strong>Remediation:</strong> Upgrade the operating system and software packages to modern, supported enterprise versions (e.g., Apache 2.4.x, PHP 8.x, current OpenSSH releases).</p>
+    </div>
+
+    <!-- Finding 4 -->
+    <div class="finding-card">
+      <div class="finding-header">
+        <span class="finding-title">Missing Session Cookie Security Attributes (HttpOnly)</span>
+        <span class="sev-tag medium">Medium</span>
+      </div>
+      <p><strong>Evidence:</strong> Nikto scan confirmed cookies <code>PHPSESSID</code> and <code>security</code> are issued without the <code>HttpOnly</code> attribute.</p>
+      <p><strong>Impact:</strong> If a Cross-Site Scripting (XSS) vulnerability exists elsewhere in the application, malicious scripts can read session tokens via client-side JavaScript.</p>
+      <p><strong>Remediation:</strong> Configure PHP (`php.ini`) to set <code>session.cookie_httponly = True</code> and ensure all application cookies include the <code>HttpOnly</code> and <code>Secure</code> flags.</p>
+    </div>
+
+    <!-- Finding 5 -->
+    <div class="finding-card">
+      <div class="finding-header">
+        <span class="finding-title">Missing Modern HTTP Security Headers &amp; Enabled TRACE Method</span>
+        <span class="sev-tag medium">Medium</span>
+      </div>
+      <p><strong>Evidence:</strong> Missing security headers: <code>Content-Security-Policy</code>, <code>Strict-Transport-Security</code>, <code>X-Content-Type-Options</code>, <code>Referrer-Policy</code>, and <code>Permissions-Policy</code>. HTTP TRACE method responded active.</p>
+      <p><strong>Impact:</strong> Absence of hardening headers leaves client browsers susceptible to clickjacking, MIME-sniffing, and cross-site tracing (XST) vector exploitation.</p>
+      <p><strong>Remediation:</strong> Configure HTTP response headers in Apache settings and disable HTTP TRACE using <code>TraceEnable Off</code> in <code>httpd.conf</code>.</p>
+    </div>
+
+    <!-- Finding 6 -->
+    <div class="finding-card">
+      <div class="finding-header">
+        <span class="finding-title">Listable Directory Configuration and Sensitivity Disclosure</span>
+        <span class="sev-tag low">Low</span>
+      </div>
+      <p><strong>Evidence:</strong> DIRB identified listable directory at <code>/dvwa/config/</code> and accessible configuration/setup scripts (<code>/dvwa/php.ini</code>, <code>/dvwa/setup</code>).</p>
+      <p><strong>Impact:</strong> Unrestricted directory listing assists attackers in mapping web application structure and locating sensitive files.</p>
+      <p><strong>Remediation:</strong> Disable directory indexing globally in web server configuration using <code>Options -Indexes</code> and restrict public access to setup scripts and configuration files.</p>
+    </div>
+  </section>
+
+  <!-- PRIORITIZED DEFENSIVE REMEDIATION -->
+  <section>
+    <h2>Prioritized Defense &amp; Remediation Plan</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Priority</th>
+          <th>Action Item</th>
+          <th>Target Component</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="sev-tag critical">P1 - Immediate</span></td>
+          <td>Kill the command shell listener on TCP port 1524 and isolate the target host from accessible production networks.</td>
+          <td>Host OS / Network Interface</td>
+        </tr>
+        <tr>
+          <td><span class="sev-tag high">P2 - Short Term</span></td>
+          <td>Disable unencrypted management protocols (Telnet, rsh, rlogin, FTP) and restrict network access via local firewall rules.</td>
+          <td>System Services / Firewall</td>
+        </tr>
+        <tr>
+          <td><span class="sev-tag high">P3 - Short Term</span></td>
+          <td>Upgrade the legacy operating system (Ubuntu) and software services (Apache, PHP, MySQL, PostgreSQL, BIND, OpenSSH) to current stable releases.</td>
+          <td>System Software Stack</td>
+        </tr>
+        <tr>
+          <td><span class="sev-tag medium">P4 - Medium Term</span></td>
+          <td>Harden web server configurations: enforce <code>HttpOnly</code> and <code>Secure</code> flags on cookies, disable <code>TRACE</code>, implement CSP and standard HTTP security headers.</td>
+          <td>Web Application / Apache</td>
+        </tr>
+        <tr>
+          <td><span class="sev-tag low">P5 - Long Term</span></td>
+          <td>Disable directory indexing (<code>Options -Indexes</code>) and restrict web root file access to necessary production assets only.</td>
+          <td>Web Directory Policy</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- CONCLUSION -->
+  <section>
+    <h2>Conclusion</h2>
+    <p>
+      The target environment at <code>http://192.168.56.101/dvwa/login.php</code> is currently in a highly vulnerable state characterized by critical backdoor access, cleartext protocols, and outdated platform components. Immediate isolation and system re-imaging/upgrading are strongly recommended prior to connected operation.
+    </p>
+  </section>
+
+  <footer>
+    Generated by AI Vulnerability Assessment Module | CYBERGUARD Security Operations
+  </footer>
+
+</div>
+</body>
+</html>

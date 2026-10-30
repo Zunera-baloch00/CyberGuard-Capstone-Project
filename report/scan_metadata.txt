@@ -1,0 +1,5 @@
+CYBERGUARD AUTOMATED SECURITY ASSESSMENT
+Target: http://192.168.56.101/dvwa/login.php
+Host: 192.168.56.101
+Web URL: http://192.168.56.101/dvwa/login.php
+Started: Thu Oct 29 11:45:32 AM EDT 2026
